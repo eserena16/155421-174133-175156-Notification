@@ -1,2 +1,15 @@
-# 155421-174133-175156-Notification
-This repository contains a Node.js application that implements an API for notifications. It provides functionality to send notifications via mail by reading from a rabbit mq.
+# App Notification
+
+Este microservicio corresponde a la implementacion para el envío de notificaciones.
+
+## Instalación
+
+1. Clona este repositorio.
+2. Ejecuta `npm install` para instalar las dependencias.
+
+## Uso
+
+1. Puedes utilizar docker para instanciar la aplicación, utilizando el archivo docker-compose.yml.
+2. Al levantar una instancia de la aplicación, la misma estará leyendo una cola de mensajes (RabbitMQ) para enviar las distintas notificaciones.
+
+
