@@ -1,8 +1,8 @@
 FROM node:lts-alpine
 
-WORKDIR /app
+WORKDIR /notification
 COPY package.json .
 RUN npm install
 COPY . .
 EXPOSE 8090
-CMD [ "node", "app.js" ]
+CMD npm start

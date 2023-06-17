@@ -7,7 +7,8 @@ services:
     depends_on:
       - rabbitmq
     environment:
-      - RABBITMQ_HOST=rabbitmq
+      - RABBIT_HOST=amqp://rabbitmq
+      - RABBIT_QUEUE=queueMail    
   rabbitmq:
     image: rabbitmq:3-management
     ports:

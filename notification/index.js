@@ -1,5 +1,7 @@
 require("dotenv").config();
 
+const { logger } = require("./app/utils/logger");
+
 const newRelic = require("newrelic");
 
 const connectRabbit = require('./app/connections/rabbitmq');
@@ -10,10 +12,19 @@ async function run() {
     const channel = await connectRabbit.connect();
     if(channel){
       await messageConsumer.startConsumer(channel);      
-    }
-    console.log('Start message queue:');
+      logger.info({
+        action: "serverStart",
+        message: `Server is running.`,
+        tags: ["server", "startup"],
+      });
+    }    
   } catch (error) {
-    console.error('Error running the application:', error);
+    console.log("error" + error);
+    logger.error({
+      action: "serverStart",
+      message: `Error start server`,
+      error: error
+    });
   }
 }
 
